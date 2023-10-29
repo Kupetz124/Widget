@@ -3,7 +3,12 @@ from src import masks
 
 
 def mask_user_data(card_details: str, score_details: str) -> str:
-    """Маскирует данные карты и счёта."""
+    """
+    Маскирует данные карты и счёта.
+    :param card_details: Строка с данными карты пользователя.
+    :param score_details: Строка с данными счёта пользователя.
+    :return: Строки с замаскированными данными карты и счёта пользователя.
+    """
     data_card = card_details.split()
     data_score = score_details.split()
 
@@ -14,7 +19,11 @@ def mask_user_data(card_details: str, score_details: str) -> str:
 
 
 def format_the_date(data: str) -> str:
-    """Возвращает удобный для чтения формат даты."""
+    """
+    Возвращает удобный для чтения формат даты.
+    :param data: Строка с данными о дате транзакции.
+    :return: Строка с датой в удобном для чтения формате.
+    """
     new_data = data.split("-")
 
     return f"{new_data[2][:2]}.{new_data[1]}.{new_data[0]}"
