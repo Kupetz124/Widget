@@ -7,7 +7,7 @@ def mask_the_card(number_card: str) -> str:
     :param number_card: Строка с номером карты.
     :return: Строка с замаскированным номером карты.
     """
-    return f"{number_card[:3]} {number_card[3:5]}** **** {number_card[12:]}"
+    return f"{number_card[:4]} {number_card[4:6]}** **** {number_card[12:]}"
 
 
 def mask_the_score(number_score: str) -> str:
