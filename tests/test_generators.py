@@ -56,17 +56,12 @@ data = [
     [(data, "USD", [939719570, 142264268, 895315941]), (data, "RUB", [873106923, 594226727])],
 )
 def test_filter_by_currency(data_list, currency, result):
-    new_list = []
-    for item in filter_by_currency(data_list, currency):
-        new_list.append(item["id"])
-    assert new_list == result
+    new_list = list(filter_by_currency(data_list, currency))
+    assert [item["id"] for item in new_list] == result
 
 
 def test_transaction_descriptions():
-    new_list = []
-    for item in transaction_descriptions(data):
-        new_list.append(item)
-    assert new_list == [
+    assert list(transaction_descriptions(data)) == [
         "Перевод организации",
         "Перевод со счета на счет",
         "Перевод со счета на счет",
@@ -76,7 +71,7 @@ def test_transaction_descriptions():
 
 
 def test_card_number_generator():
-    assert [item for item in card_number_generator(1, 5)] == [
+    assert list(card_number_generator(1, 5)) == [
         "0000 0000 0000 0001",
         "0000 0000 0000 0002",
         "0000 0000 0000 0003",
