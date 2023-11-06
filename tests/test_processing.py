@@ -39,11 +39,8 @@ def sort_date():
     ]
 
 
-def test_select_by_key_executed(data, data_executed):
+def test_select_by_key_executed(data, data_executed, data_canceled):
     assert select_by_key(data) == data_executed
-
-
-def test_select_by_key_canceled(data, data_canceled):
     assert select_by_key(data, "CANCELED") == data_canceled
 
 
