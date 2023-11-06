@@ -11,3 +11,12 @@ def filter_by_currency(data: list[dict] | Generator, currency: str) -> Generator
     """
 
     return (item for item in data if item["operationAmount"]["currency"]["code"] == currency)
+
+
+def transaction_descriptions(data: list[dict]) -> Generator:
+    """
+    Принимает список словарей и возвращает описание каждой операции по очереди
+    :param data:список словарей
+    :return:описание банковской операции
+    """
+    return (item["description"] for item in data)
