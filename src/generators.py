@@ -19,7 +19,8 @@ def transaction_descriptions(data: list[dict]) -> Generator:
     :param data:список словарей
     :return:описание банковской операции
     """
-    return (item["description"] for item in data)
+    for item in data:
+        yield item["description"]
 
 
 def card_number_generator(start: int, end: int) -> Generator:
@@ -35,11 +36,4 @@ def card_number_generator(start: int, end: int) -> Generator:
         number = "0" * (16 - len(str(item))) + str(item)
 
         # разбиваем строку пробелами через 4 символа
-        number_with_spaces = ""
-        for i, num in enumerate(number):
-            if i > 0 and i % 4 == 0:
-                number_with_spaces += " " + num
-            else:
-                number_with_spaces += num
-
-        yield number_with_spaces
+        yield f"{number[:4]} {number[4:8]} {number[8:12]} {number[12:]}"
