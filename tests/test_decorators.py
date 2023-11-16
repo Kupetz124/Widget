@@ -1,7 +1,10 @@
-from src.decorators import log
+import os
+
 import pytest
 
-path_file = "test.txt"
+from src.decorators import log
+
+path_file = os.path.join(r"D:\python_project\bank_widget_\tests\test.txt")
 
 
 def read_from_file(file):
