@@ -18,3 +18,15 @@ def get_transactions_data(file_path: str) -> Any:
         return []
     except FileNotFoundError:
         return []
+
+
+def get_sum_transaction(data: dict) -> float | str:
+    """
+    Принимает на вход одну транзакцию и возвращает сумму транзакции в рублях
+    :param data: словарь с данными одной транзакции
+    :return: сумма транзакции или сообщение об ошибке
+    """
+    if data["operationAmount"]["currency"]["code"] == "RUB":
+        return float(data["operationAmount"]["amount"])
+    else:
+        return "ValueError: Транзакция выполнена не в рублях. Укажите транзакцию в рублях."
