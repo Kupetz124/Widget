@@ -31,13 +31,11 @@ def data():
 
 # Получение пути к текущему исполняемому файлу
 current_dir = os.path.dirname(os.path.abspath(__file__))
+base_dir = current_dir[: -(len(current_dir.split("\\")[-1]) + 1)]
 
 # Создание относительного пути к файлу от текущего файла
-file_name_1 = os.path.join(current_dir, "data", "operations.json")
-file_name_2 = os.path.join(current_dir, "tests", "for_tests.json")
-
-file_path_1 = os.path.join(r"D:\python_project\bank_widget_\data\operations.json")
-file_path_2 = os.path.join(r"D:\python_project\bank_widget_\tests\test_utils.py")
+file_path_1 = os.path.join(base_dir, "data", "operations.json")
+file_path_2 = os.path.join(base_dir, "tests", "for_tests.json")
 
 
 def test_get_transactions_data(data):
