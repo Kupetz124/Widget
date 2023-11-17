@@ -29,12 +29,19 @@ def data():
     ]
 
 
-file_path = os.path.join(r"D:\python_project\bank_widget_\data\operations.json")
+# Получение пути к текущему исполняемому файлу
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Создание относительного пути к файлу от текущего файла
+file_name_1 = os.path.join(current_dir, "data", "operations.json")
+file_name_2 = os.path.join(current_dir, "tests", "for_tests.json")
+
+file_path_1 = os.path.join(r"D:\python_project\bank_widget_\data\operations.json")
 file_path_2 = os.path.join(r"D:\python_project\bank_widget_\tests\test_utils.py")
 
 
 def test_get_transactions_data(data):
-    assert get_transactions_data(file_path)[:2] == data
+    assert get_transactions_data(file_path_1)[:2] == data
     assert get_transactions_data("file") == []
     assert get_transactions_data(file_path_2) == []
 
