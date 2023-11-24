@@ -9,7 +9,7 @@ def main() -> None:
     print(masks.mask_the_card(num_card))
     print(masks.mask_the_score(num_score))
 
-    file_path = "data/operations.json"
+    file_path = "ddata/operations.json"
     test_data = {
         "id": 441945886,
         "state": "EXECUTED",
