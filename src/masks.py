@@ -1,13 +1,9 @@
 # модуль с функциями для маскировки номеров карт и счетов
-
 import logging
 
-logger = logging.getLogger(__name__)
-file_handler = logging.FileHandler(f"{__name__}.log", "w", encoding="utf-8")
-file_formatter = logging.Formatter("%(asctime)s %(name)s %(funcName)s %(levelname)s: %(message)s")
-file_handler.setFormatter(file_formatter)
-logger.addHandler(file_handler)
+from src.logger import record_logs
 
+logger = record_logs(__name__)
 logger.setLevel(logging.INFO)
 
 
