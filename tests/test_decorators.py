@@ -7,6 +7,11 @@ from src.decorators import log
 path_file = os.path.join(r"D:\python_project\bank_widget_\tests\test.txt")
 
 
+@pytest.fixture
+def test_str():
+    return "<divide_numbers> error: integer division or modulo by zero. Inputs: ((10, 0), {})\n"
+
+
 def read_from_file(file):
     with open(file) as f:
         return f.readlines()
@@ -29,8 +34,5 @@ def test_log(path, x, y, rez):
     assert divide_numbers(x, y) == rez
 
 
-def test_writing_to_file():
-    assert (
-            read_from_file(path_file)[-1][-82:]
-            == "<divide_numbers> error: integer division or modulo by zero. Inputs: ((10, 0), {})\n"
-    )
+def test_writing_to_file(test_str):
+    assert read_from_file(path_file)[-1][-82:] == test_str
